@@ -20,7 +20,7 @@ Part 1: `.tiff` files of individual segmented nuclei.
 Part 2:
 `.csv` file with CV values for each nucleus analysed and MatLab Workspace (both files will be saved automatically).
 
-Three figures displaying the intensity profiles of individual nuclei, of average values per category, and of CV boxplot (Optional). Figures are automatically saved. 
+Three figures `.png` displaying the intensity profiles of individual nuclei, of average values per category, and of CV boxplot (Optional). Figures are automatically saved. 
 
   
 ## Composed by: 
@@ -30,7 +30,7 @@ Part 2: MATLAB_CV_Confocal.m
 
   
 ## Tested
-Tested using Fiji/ImageJ 2.1.0/1.53c & Matlab_R2016b
+Tested using Fiji/ImageJ 2.1.0/1.53c & Matlab_R2016b, R2016a, and R2021a.
 
   
 ## Authors 
@@ -53,7 +53,7 @@ Part 1
 - Depending on cell type and confluency you might need to adjust the following parameters in the Macro:
 	•	run("Gaussian Blur...", "sigma=2"); if necessary increase sigma value to smooth the masks 
 	•	setThreshold(12, 255); if necessary adjust minimum value (decrease for very dim images or increase in cases of high background) 
-	•	run("Watershed"); remove line if you observe too many nuclear segmented in pieces
+	•	run("Watershed"); remove line if you observe too many nuclei segmented in pieces
 	•	run("Analyze Particles...", "size=50-Infinity exclude add"); decrease minimum size value if small nuclei get excluded; 
 	•	run("Analyze Particles...", "size=50-Infinity exclude add"); if desired remove "exclude" to include nuclei at edges of image
 - If you want to discard nuclei that were not correctly segmented, erase the files with the corresponding ROI number.   
@@ -63,10 +63,10 @@ Part 1
 Part 2
 - Open "MATLAB_CV_Confocal.m"
 - Adjust the following parameters: 
-  •	"categ = 2" adjust number of experimental categories
+        •	"categ = 2" adjust number of experimental categories
 	•	“Folder”: the folder in which you want the output files (.mat, .xlsx, .fig) to be automatically saved
 	•	"categname" adjust desired names of experimental categories
-  •	"colors" choose desired color code or go for random colors assignation (colormap(jet()) function)
+        •	"colors" choose desired color code or go for random colors assignation (colormap(jet()) function)
 	•	“legend” adjust name of desired legends for plot
 - Run script
 - Load .bin files for each category. 

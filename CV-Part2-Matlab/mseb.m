@@ -19,6 +19,8 @@ function H = mseb(x,y,errBar,lineProps,transparent)
 % Andreas Trier Poulsen, atpo@dtu.dk
 % Technical University of Denmark, Cognitive systems - January 2015
 %
+% 2021-09-17 Laura Martin polished the comments on the script
+%
 % Inputs
 % x - vector of x values [optional, can be left empty]
 % y - vector of y values or a matrix of C x N, where C is the number of
@@ -138,7 +140,7 @@ if ~holdStatus, hold on,  end
 for c = C:-1:1
     %% Plotting patches
     % Plot the main line. We plot this first in order to extract the RGB values
-    % for the line colour. I am not aware of a function that does this.
+    % for the line colour.
     H(c).mainLine=plot(x(c,:),y(c,:),'color',lineProps.col{c});
     
     
@@ -198,9 +200,8 @@ end
 for c = 1:C
     %% Plot mainlines
     %The main line is now covered by the patch object and was plotted first to
-    %extract the RGB value of the main plot line. I am not aware of an easy way
-    %to change the order of plot elements on the graph so we'll just remove it
-    %and put it back (yuk!)
+    %extract the RGB value of the main plot line. To make the main line appear again
+    %we'll just remove it and put it back
     delete(H(c).mainLine)
     H(c).mainLine=plot(x(c,:),y(c,:),lineProps.style,'color',lineProps.col{c},...
         'linewidth',lineProps.width);

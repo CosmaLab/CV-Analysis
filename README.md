@@ -66,7 +66,7 @@ Part 1
 Part 2
 - Open "MATLAB_CV_Confocal.m"
 - Adjust the following parameters:
-  •	"edges = 0:1:255". Adjust the first and last numbers according to the bits of your image (i.e. 0:x:255 for 8-bit images, 0:x:25516 for 16-bit images). Adjust the middle number according to the binning desired (the higher the number, the smoother the plot).
+  •	"edges = 0:1:255". Adjust the first and last numbers according to the bits of your image (i.e. 0:x:255 for 8-bit images, 0:x:65535 for 16-bit images). Adjust the middle number according to the binning desired (the higher the number, the smoother the plot).
   •	"categ = 2" adjust number of experimental categories
   •	“Folder”: the folder in which you want the output files (.mat, .xlsx, .fig) to be automatically saved
   •	"categname" adjust desired names of experimental categories

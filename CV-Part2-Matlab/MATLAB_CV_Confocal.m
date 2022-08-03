@@ -1,17 +1,17 @@
-
 %% Coefficient of variation for confocal images
 % Code by Chiara VICARIO 2019-02
-% Further annotated & Readme file by Victoria NEGUEMBOR 2021-06
-
+% Further annotated & README file by Victoria NEGUEMBOR 2021-06
+% Further annotated & README file by Laura MARTIN 2022-08
 
 clear all
 close all 
 
+%% Modify edges values according to binning desired (i.e. 1) and maximium pixel instensity (i.e. 255)
 edges = 0:1:255;
 
 %% Parameter to add
 
-% add the correct categories number and names
+% Adjust the number and names of categories, and the folder directory where to save output files.
 categ = 2; 
 Folder = 'C:\Users\';
 categname = {'Condition1','Condition2'};
@@ -23,11 +23,11 @@ for m = 1:categ
     
 end
 
-% % choose colors by checking/unchecking prefered settings
-
+% % %  ATTENTION !The number of colors should be the same of the number of categ!
+% % Uncheck the following line to have Condition1 in magenta and Condition2 in green. Add colors [] if categ>2.
 % colors = [[0.6314    0.0039    0.7569];  [0.5176    0.8902    0.0039]];
-% % magenta Condition1    %% green Condition2
- colors = colormap(jet(2));
+% % Uncheck the following line to assign random colors to Conditions. (if categ = 5, colors = colormap(jet(5));)
+colors = colormap(jet(2));
 
 for m = 1:categ
     
@@ -57,7 +57,7 @@ for k = 1: length(data)
 end
 end
 
-
+% % % Change plot appearance by modifying axes labels, fontsize etc.
 xlabel('pixel intensity','fontsize',14)
 ylabel('probability','fontsize',14)
 set(gca,'FontSize',14)
@@ -70,7 +70,7 @@ saveas(gcf,strcat(Folder,'\CV_Histplot_individualcells'),'fig')
 %saveas(gcf,strcat(Folder,'\CV_Histplot_individualcells'),'bmp')
 
 
-% Save output analysis result
+% Save output CV analysis result
 % ATT no headers!!! 
 CVtable = array2table(CV');
 CVtable.Properties.VariableNames  = categname;
@@ -105,13 +105,13 @@ hold on
 
 legend('Condition1','Condition2')
 
-
-xlabel('pixel intensity','fontsize',20)
-ylabel('probability','fontsize',20)
+xlabel('pixel intensity','fontsize',14)
+ylabel('probability','fontsize',14)
 set(gca,'FontSize',18)
 set(gcf,'color','w');
 grid on 
 box off
+% % % Change xlim value according to the maximum intensity of your images (i.e. for 16-bit images, xlim([0 65535]) )
 xlim([0 255])
 
 
@@ -126,7 +126,7 @@ save(strcat(Folder,'\CVanalysis_workspace.mat'));
 %saveas(gcf,'Density_Results_Histplot_smooth','fig')
 
 
-%Uncomment this part (CTRL+T or command+T for Mac) if you want to plot the boxplot in matlab 
+%Uncomment this part (CTRL+T or command+T for Mac) if you want to plot the boxplot in MatLab 
 boxplotpregunta = input('Do Boxplot (Y/N)>','s');
 
 if boxplotpregunta=='Y';
@@ -165,7 +165,7 @@ for m = 1 :categ
     
 end
 
-%Save figure boxplot
+%Save figure3 boxplot
 saveas(gcf,strcat(Folder,'\Coefficient_Variation_Boxplot'),'fig')
 
 else
